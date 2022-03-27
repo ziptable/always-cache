@@ -1,5 +1,5 @@
-name: 'Cache'
-description: 'Cache artifacts like dependencies and build outputs to improve workflow execution time'
+name: 'Cache (Always)'
+description: 'Always cache artifacts like dependencies and build outputs to improve workflow execution time (even if previous steps fail)'
 author: 'GitHub'
 inputs:
   path:
@@ -21,7 +21,7 @@ runs:
   using: 'node16'
   main: 'dist/restore/index.js'
   post: 'dist/save/index.js'
-  post-if: 'success()'
+  post-if: 'always()'
 branding:
   icon: 'archive'
   color: 'gray-dark'
